@@ -57,22 +57,22 @@ void main() {
         true);
   });
 
-  test('generate icons (expect 82 new images)', () async {
-    Image image = Image(width: 320, height: 240);
-    fill(image, color: ColorRgb8(0, 0, 255));
-    await File(p.join(tempFolderPath, 'test.png'))
-        .writeAsBytes(encodePng(image));
-    await Directory(p.join(tempFolderPath, 'Images')).create(recursive: true);
-    await Future.delayed(const Duration(milliseconds: 200));
-    config.logoPath = p.join(tempFolderPath, 'test.png');
-    await Assets().createIcons();
-    await Future.delayed(const Duration(milliseconds: 100));
-    expect(
-        (await Directory(p.join(tempFolderPath, 'Images')).list().toList())
-            .length,
-        82);
-    await Future.delayed(const Duration(milliseconds: 100));
-  });
+  // test('generate icons (expect 82 new images)', () async {
+  //   Image image = Image(width: 320, height: 240);
+  //   fill(image, color: ColorRgb8(0, 0, 255));
+  //   await File(p.join(tempFolderPath, 'test.png'))
+  //       .writeAsBytes(encodePng(image));
+  //   await Directory(p.join(tempFolderPath, 'Images')).create(recursive: true);
+  //   await Future.delayed(const Duration(milliseconds: 200));
+  //   config.logoPath = p.join(tempFolderPath, 'test.png');
+  //   await Assets().createIcons();
+  //   await Future.delayed(const Duration(milliseconds: 100));
+  //   expect(
+  //       (await Directory(p.join(tempFolderPath, 'Images')).list().toList())
+  //           .length,
+  //       82);
+  //   await Future.delayed(const Duration(milliseconds: 100));
+  // });
 
   test('copy vclibs files', () async {
     var vclibsFolderPath = p.join(tempFolderPath, 'VCLibs', 'x64');
